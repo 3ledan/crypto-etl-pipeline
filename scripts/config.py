@@ -1,4 +1,5 @@
 # Database configuration
+# Replace with your PostgreSQL credentials
 DB_CONFIG = {
     "host": "localhost",
     "database": "crypto_db",
