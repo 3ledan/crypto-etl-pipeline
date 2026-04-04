@@ -23,3 +23,22 @@ This project is a modular ETL pipeline that extracts real-time cryptocurrency da
 
 3. Run the pipeline:
    python scripts/main.py
+
+## Project Structure
+
+scripts/
+├── main.py        # pipeline orchestrator
+├── extract.py     # API data extraction
+├── transform.py   # data transformation
+├── load.py        # database loading
+├── connect_db.py  # database connection
+├── config.py      # configuration
+
+## Example Output
+
+bitcoin 65000 1200000000 2.5
+ethereum 3200 400000000 1.2
+
+## Scheduling
+
+The pipeline is scheduled using cron for periodic data ingestion.
