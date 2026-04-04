@@ -28,10 +28,15 @@ This project is a modular ETL pipeline that extracts real-time cryptocurrency da
 
 scripts/
 ├── main.py        # pipeline orchestrator
+
 ├── extract.py     # API data extraction
+
 ├── transform.py   # data transformation
+
 ├── load.py        # database loading
+
 ├── connect_db.py  # database connection
+
 ├── config.py      # configuration
 
 ## Example Output
