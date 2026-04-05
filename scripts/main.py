@@ -2,7 +2,6 @@
 from extract import crypto_data
 from transform import transform_data
 from load import load
-from extract import crypto_data
 import os
 
 os.environ['PATH'] = "/opt/anaconda3/bin/python:" + os.environ['PATH']
