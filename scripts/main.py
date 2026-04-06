@@ -1,16 +1,27 @@
-#!/usr/bin/env python3
-from extract import crypto_data
+from extract import extract_data
 from transform import transform_data
-from load import load
-import os
+from load import load_fetched_data
+import logging
 
-os.environ['PATH'] = "/opt/anaconda3/bin/python:" + os.environ['PATH']
+logging.basicConfig(
+    filename= 'pipeline.log',
+    level= logging.INFO,
+    format= '%(asctime)s - %(levelname)s - %(message)s'
+)
 
-# ELT model
 def run_pipeline():
-    data = crypto_data()
+    try:
+        data = extract_data()
+        logging.info("API fetch successful")
+    except Exception as e:
+        logging.error(f"API Fetch failed: {e}")
+        return
     processed_data = transform_data(data)
-    load(processed_data)
+    try:
+        load_fetched_data(processed_data)
+        logging.info("Data inserted successfully")
+    except Exception as e:
+        logging.error(f"An error occured: {e}")
 
 if __name__ == "__main__":
     run_pipeline()
