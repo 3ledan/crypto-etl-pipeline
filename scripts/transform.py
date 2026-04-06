@@ -1,18 +1,11 @@
-# import extract data:
-# from extract import crypto_data
-
-# Transform block
 def transform_data(data):
-    processed = []
-    for coin in data:
-        currency = coin.get("id")
-        price = coin.get("current_price")
-        market_cap = coin.get("market_cap")
-        change_24h = coin.get("price_change_24h")
-        if price is not None:
-            processed.append((currency, price, market_cap, change_24h))
-        
-    return processed
-
-# Test extracted data:
-# print(transform_data(crypto_data()))
+    columns = []
+    for info in data:
+        currency = info.get('id')
+        price_usd = info.get('current_price')
+        market_cap = info.get('market_cap')
+        total_volume = info.get('total_volume')
+        price_change_24h = info.get('price_change_percentage_24h')
+        columns.append((currency, price_usd, market_cap, total_volume, price_change_24h))
+    
+    return columns
