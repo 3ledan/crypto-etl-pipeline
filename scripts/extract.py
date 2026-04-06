@@ -1,10 +1,10 @@
-import requests
 from config import API_URL
+import requests
 
-# Extract block
-def crypto_data():
+def extract_data():
     response = requests.get(API_URL)
     if response.status_code == 200:
         return response.json()
     else:
-        raise Exception("Error fetching data")
+        raise Exception("An error has occured...")
+    
